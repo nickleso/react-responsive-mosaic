@@ -37,14 +37,12 @@ const adjustGridItemsHeight = (grid) => {
 };
 
 const GridWrapper = styled.div`
-  /* display: grid;
+  display: grid;
   grid-gap: 15px;
-  grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
-  grid-auto-rows: 180px; */
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  grid-auto-rows: 180px;
 
-  width: 1245px;
-
-  display: flex;
+  /* display: flex;
   flex-wrap: wrap;
-  gap: 15px;
+  gap: 15px; */
 `;

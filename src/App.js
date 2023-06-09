@@ -30,7 +30,8 @@ export default function App() {
               key={item.id}
               item={item}
               onDrop={onDrop}
-              width={Math.random() < 0.5 ? "small" : "medium"}
+              width={item.width}
+              height={item.height}
             >
               {item.content}
             </DraggableGridItem>

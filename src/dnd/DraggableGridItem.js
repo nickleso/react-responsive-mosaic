@@ -3,8 +3,9 @@ import { useDragAndDrop } from "./useDragAndDrop";
 import styled from "styled-components";
 
 export default function DraggableGridItem(props) {
-  const { item, onDrop, children, width, ...p } = props;
-  console.log(width);
+  const { item, onDrop, children, width, height, ...p } = props;
+  console.log("width", width);
+  console.log("height", height);
 
   const ref = useRef(null);
 
@@ -15,7 +16,13 @@ export default function DraggableGridItem(props) {
 
   const opacity = isDragging ? 0 : 1;
   return (
-    <GridItemWrapper {...p} ref={ref} style={{ opacity }} width={width}>
+    <GridItemWrapper
+      {...p}
+      ref={ref}
+      style={{ opacity }}
+      width={width}
+      height={height}
+    >
       <div>{children}</div>
     </GridItemWrapper>
   );
@@ -77,7 +84,9 @@ const createDragHoverCallback = (ref, currentItem, onDrop) => {
 };
 
 const GridItemWrapper = styled.div`
-  width: ${({ width }) => {
+  overflow: hidden;
+
+  /* width: ${({ width }) => {
     switch (width) {
       case "small":
         return "240px";
@@ -87,8 +96,23 @@ const GridItemWrapper = styled.div`
         return "240px";
     }
   }};
-  height: 240px;
-  /* min-width: 240px; */
+
+  height: ${({ height }) => {
+    switch (height) {
+      case "small":
+        return "240px";
+      case "medium":
+        return "480px";
+      default:
+        return "240px";
+    }
+  }}; */
+
+  width: auto;
+  min-width: 240px;
+
+  /* height: auto; */
+
   background-color: #fff;
   padding: 10px;
   border-radius: 5px;
